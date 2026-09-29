@@ -7,7 +7,7 @@ export interface Dictionary {
     note: string;
     description: string;
   };
-  linkhub: { research: string; entertainment: string; social: string };
+  linkhub: { research: string; hobby: string; social: string };
   skills: { title: string; items: string[] };
   projects: {
     title: string;
@@ -44,7 +44,7 @@ export const zh: Dictionary = {
   },
   linkhub: {
     research: "研究",
-    entertainment: "娱乐",
+    hobby: "爱好",
     social: "社交",
   },
   skills: {
@@ -114,7 +114,7 @@ export const en: Dictionary = {
   },
   linkhub: {
     research: "Research",
-    entertainment: "Entertainment",
+    hobby: "Hobbies",
     social: "Social",
   },
   skills: {
