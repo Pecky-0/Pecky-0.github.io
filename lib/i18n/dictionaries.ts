@@ -4,12 +4,10 @@ export type Language = "zh" | "en";
 export interface Dictionary {
   nav: { home: string; blog: string; about: string };
   hero: {
-    greeting: string;
-    intro: string;
+    note: string;
     description: string;
-    viewBlog: string;
-    contactMe: string;
   };
+  linkhub: { research: string; entertainment: string; social: string };
   skills: { title: string; items: string[] };
   projects: {
     title: string;
@@ -40,12 +38,14 @@ export interface Dictionary {
 export const zh: Dictionary = {
   nav: { home: "首页", blog: "博客", about: "关于" },
   hero: {
-    greeting: "你好，我是",
-    intro: "热爱技术与创造的开发者。",
+    note: "困到睁不开眼，也要把喜欢的事做好。",
     description:
-      "在这里记录我的学习笔记、项目经历与一些想法。欢迎逛逛我的博客，或了解更多关于我的信息。",
-    viewBlog: "看看博客",
-    contactMe: "联系我",
+      "热爱技术与创造的开发者。在这里记录学习笔记、项目经历与一些想法。",
+  },
+  linkhub: {
+    research: "研究",
+    entertainment: "娱乐",
+    social: "社交",
   },
   skills: {
     title: "技能",
@@ -108,12 +108,14 @@ export const zh: Dictionary = {
 export const en: Dictionary = {
   nav: { home: "Home", blog: "Blog", about: "About" },
   hero: {
-    greeting: "Hi, I'm",
-    intro: "a developer who loves building things.",
+    note: "Sleepy, but doing what I love.",
     description:
-      "I write about what I learn, the projects I build, and ideas worth sharing. Feel free to browse my blog or learn more about me.",
-    viewBlog: "View Blog",
-    contactMe: "Contact Me",
+      "A developer who loves building things. I write about what I learn and the projects I build.",
+  },
+  linkhub: {
+    research: "Research",
+    entertainment: "Entertainment",
+    social: "Social",
   },
   skills: {
     title: "Skills",
