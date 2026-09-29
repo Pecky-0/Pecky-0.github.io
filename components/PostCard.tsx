@@ -1,12 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import type { PostMeta } from "@/lib/posts";
 
 export default function PostCard({ post }: { post: PostMeta }) {
-  const { t } = useLanguage();
-
   return (
     <Link
       href={`/blog/${post.slug}/`}
@@ -18,11 +15,6 @@ export default function PostCard({ post }: { post: PostMeta }) {
         </h3>
         <time className="shrink-0 text-xs text-neutral-500">{post.date}</time>
       </div>
-      {post.description && (
-        <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-400">
-          {post.description}
-        </p>
-      )}
       {post.tags.length > 0 && (
         <div className="mt-2.5 flex flex-wrap gap-1.5">
           {post.tags.map((tag) => (

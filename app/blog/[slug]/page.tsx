@@ -15,7 +15,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug);
   return {
     title: post.title,
-    description: post.description,
   };
 }
 

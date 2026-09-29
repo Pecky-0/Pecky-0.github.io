@@ -8,11 +8,21 @@ import { notFound } from "next/navigation";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+/** 把 frontmatter 的 date（可能是 Date 对象或字符串）格式化为 YYYY-MM-DD */
+function formatDate(value: unknown): string {
+  if (value instanceof Date) {
+    const y = value.getFullYear();
+    const m = String(value.getMonth() + 1).padStart(2, "0");
+    const d = String(value.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+  return String(value ?? "");
+}
+
 export interface PostMeta {
   slug: string;
   title: string;
   date: string;
-  description: string;
   tags: string[];
 }
 
@@ -42,8 +52,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   return {
     slug,
     title: String(data.title ?? slug),
-    date: String(data.date ?? ""),
-    description: String(data.description ?? ""),
+    date: formatDate(data.date),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     contentHtml: String(processedContent),
   };
@@ -57,8 +66,7 @@ export function getAllPosts(): PostMeta[] {
       return {
         slug,
         title: String(data.title ?? slug),
-        date: String(data.date ?? ""),
-        description: String(data.description ?? ""),
+        date: formatDate(data.date),
         tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
       };
     })
