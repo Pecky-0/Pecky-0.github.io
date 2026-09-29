@@ -40,7 +40,7 @@ export const zh: Dictionary = {
   hero: {
     note: "今天喝冰红茶了吗！",
     description:
-      "希望有一天能成为带给大家爱与感动的GameMaker，如果真的做不到，或许我会大哭一场。",
+      "希望有一天，我能讲出一些带给别人爱与感动的故事。如果等到垂垂老矣，当我意识到我没有，同时再也无法做到我希望的这些，或许我会大哭一场。",
   },
   linkhub: {
     research: "研究",

@@ -1,9 +1,19 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* dark: 变体跟随 <html> 上的 .dark class（next-themes 切换的就是它），
+   而不是默认的系统 prefers-color-scheme 媒体查询 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* next-themes 切到深色时（html.dark），body 背景文字同步变黑 */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
