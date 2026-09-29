@@ -30,6 +30,18 @@ export interface Post extends PostMeta {
   contentHtml: string;
 }
 
+/** 段落里只有一张图且 alt 非空时，转成 figure 并把 alt 作为图片下方的居中图注（论文样式） */
+function withFigureCaptions(html: string): string {
+  return html.replace(
+    /<p><img([^>]*)><\/p>/g,
+    (paragraph, attrs: string) => {
+      const alt = /alt="([^"]*)"/.exec(attrs)?.[1];
+      if (!alt?.trim()) return paragraph;
+      return `<figure><img${attrs}><figcaption>${alt}</figcaption></figure>`;
+    }
+  );
+}
+
 export function getPostSlugs(): string[] {
   if (!fs.existsSync(postsDirectory)) return [];
   return fs
@@ -54,7 +66,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     title: String(data.title ?? slug),
     date: formatDate(data.date),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
-    contentHtml: String(processedContent),
+    contentHtml: withFigureCaptions(String(processedContent)),
   };
 }
 

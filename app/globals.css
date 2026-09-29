@@ -98,3 +98,18 @@ body {
   color: var(--foreground);
   opacity: 0.75;
 }
+
+/* 独立成段的图片转成 figure（见 lib/posts.ts），图注为图片下方的小字居中说明 */
+.prose figure {
+  margin: 2rem 0;
+}
+.prose figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.prose figcaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-neutral-500);
+}
