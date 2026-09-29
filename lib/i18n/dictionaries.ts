@@ -16,7 +16,6 @@ export interface Dictionary {
   };
   blog: {
     title: string;
-    subtitle: string;
     empty: string;
     readMore: string;
     backToList: string;
@@ -79,7 +78,6 @@ export const zh: Dictionary = {
   },
   blog: {
     title: "博客",
-    subtitle: "记录学习与思考",
     empty: "还没有文章，敬请期待。",
     readMore: "阅读全文",
     backToList: "← 返回列表",
@@ -149,7 +147,6 @@ export const en: Dictionary = {
   },
   blog: {
     title: "Blog",
-    subtitle: "Notes and thoughts",
     empty: "No posts yet. Stay tuned.",
     readMore: "Read More",
     backToList: "← Back to List",
