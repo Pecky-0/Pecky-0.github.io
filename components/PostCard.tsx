@@ -10,10 +10,10 @@ export default function PostCard({ post }: { post: PostMeta }) {
   return (
     <Link
       href={`/blog/${post.slug}/`}
-      className="group block rounded-lg border border-neutral-200 p-4 transition-colors hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
+      className="group block rounded-lg border border-neutral-200 p-4 transition-all hover:-translate-y-0.5 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
     >
       <div className="flex items-baseline justify-between gap-2">
-        <h3 className="font-medium text-neutral-900 group-hover:underline dark:text-white">
+        <h3 className="font-medium text-neutral-900 group-hover:underline decoration-neutral-300 underline-offset-4 dark:text-white dark:decoration-neutral-600">
           {post.title}
         </h3>
         <time className="shrink-0 text-xs text-neutral-500">{post.date}</time>
@@ -35,9 +35,6 @@ export default function PostCard({ post }: { post: PostMeta }) {
           ))}
         </div>
       )}
-      <span className="mt-3 inline-block text-sm text-blue-600 group-hover:underline dark:text-blue-400">
-        {t.blog.readMore} →
-      </span>
     </Link>
   );
 }

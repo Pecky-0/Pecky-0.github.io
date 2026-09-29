@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const { t, lang, setLang } = useLanguage();
@@ -19,10 +20,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
       <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4">
-        <Link href="/" className="font-semibold">
+        <Link href="/" className="font-semibold tracking-tight">
           Pecky-0
         </Link>
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-0.5 sm:gap-1">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -44,6 +45,7 @@ export default function Navbar() {
           >
             {t.langToggle.label}
           </button>
+          <ThemeToggle />
         </div>
       </nav>
     </header>
