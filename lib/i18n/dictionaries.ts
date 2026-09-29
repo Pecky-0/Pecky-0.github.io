@@ -110,7 +110,7 @@ export const en: Dictionary = {
   hero: {
     note: "Sleepy, but doing what I love.",
     description:
-      "A developer who loves building things. I write about what I learn and the projects I build.",
+      "I hope that one day I can tell stories that bring others love and move them. If I wait until I am old and gray, only to realize that I never did, and that I can no longer do what I once hoped to do, perhaps I will cry my heart out.",
   },
   linkhub: {
     research: "Research",
