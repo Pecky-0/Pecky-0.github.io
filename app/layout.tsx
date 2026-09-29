@@ -19,10 +19,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pecky-0.github.io"),
   title: {
-    default: "Pecky-0 的个人网站",
-    template: "%s | Pecky-0",
+    default: "Pecky 的个人网站",
+    template: "%s | Pecky",
   },
-  description: "Pecky-0 的个人网站：博客、项目与关于我。",
+  description: "Pecky 的个人网站：博客、项目与关于我。",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

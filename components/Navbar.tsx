@@ -21,7 +21,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
       <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4">
         <Link href="/" className="font-semibold tracking-tight">
-          Pecky-0
+          Pecky
         </Link>
         <div className="flex items-center gap-0.5 sm:gap-1">
           {links.map((link) => (

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { links, type LinkItem } from "@/lib/links";
 
@@ -10,14 +11,17 @@ function ProfilePanel() {
   return (
     <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
       {/* 头像 */}
-      <div
-        className="size-28 shrink-0 rounded-full border border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800"
-        role="img"
-        aria-label="头像占位"
+      <Image
+        src="/head.jpg"
+        alt="Pecky 的头像"
+        width={112}
+        height={112}
+        priority
+        className="size-28 shrink-0 rounded-full border border-neutral-300 object-cover dark:border-neutral-700"
       />
       {/* 昵称 */}
       <h1 className="mt-5 text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
-        Pecky-0
+        Pecky
       </h1>
       {/* 一句小随笔 */}
       <p className="mt-3 text-sm italic text-neutral-500 dark:text-neutral-400">

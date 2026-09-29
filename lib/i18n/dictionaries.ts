@@ -38,9 +38,9 @@ export interface Dictionary {
 export const zh: Dictionary = {
   nav: { home: "首页", blog: "博客", about: "关于" },
   hero: {
-    note: "困到睁不开眼，也要把喜欢的事做好。",
+    note: "今天喝冰红茶了吗！",
     description:
-      "热爱技术与创造的开发者。在这里记录学习笔记、项目经历与一些想法。",
+      "希望有一天能成为带给大家爱与感动的GameMaker，如果真的做不到，或许我会大哭一场。",
   },
   linkhub: {
     research: "研究",
@@ -88,7 +88,7 @@ export const zh: Dictionary = {
   },
   about: {
     title: "关于我",
-    intro: "你好！我是 Pecky-0，一名热爱技术与创造的开发者。",
+    intro: "你好！我是 Pecky，一名热爱技术与创造的开发者。",
     body: [
       "这一页用来介绍你自己：你的背景、正在学习或专注的方向、经历与兴趣。",
       "你可以直接编辑 app/about/page.tsx 来修改这里的内容，或告诉我你想展示什么，我来帮你改。",
@@ -96,7 +96,7 @@ export const zh: Dictionary = {
     contact: "联系方式",
     contactBody: "GitHub: [Pecky-0](https://github.com/Pecky-0) · 邮箱：待补充",
   },
-  footer: { copyright: "© {year} Pecky-0 · 用 Next.js 构建，托管于 GitHub Pages" },
+  footer: { copyright: "© {year} Pecky · 用 Next.js 构建，托管于 GitHub Pages" },
   notFound: {
     title: "404 - 页面不存在",
     description: "你访问的页面不存在或已被移动。",
@@ -158,7 +158,7 @@ export const en: Dictionary = {
   },
   about: {
     title: "About Me",
-    intro: "Hi! I'm Pecky-0, a developer who loves building things.",
+    intro: "Hi! I'm Pecky, a developer who loves building things.",
     body: [
       "This page is where you introduce yourself: your background, what you're learning or focusing on, your experience and interests.",
       "You can edit app/about/page.tsx directly, or tell me what you want to show and I'll update it for you.",
@@ -167,7 +167,7 @@ export const en: Dictionary = {
     contactBody: "GitHub: [Pecky-0](https://github.com/Pecky-0) · Email: TBU",
   },
   footer: {
-    copyright: "© {year} Pecky-0 · Built with Next.js, hosted on GitHub Pages"
+    copyright: "© {year} Pecky · Built with Next.js, hosted on GitHub Pages"
   },
   notFound: {
     title: "404 - Page Not Found",
