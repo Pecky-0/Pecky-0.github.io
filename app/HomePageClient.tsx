@@ -31,8 +31,31 @@ function ProfilePanel() {
   );
 }
 
+/** 右侧单个链接条目。url 为空时是纯展示条目（如邮箱，右侧直接显示地址） */
 function LinkRow({ link }: { link: LinkItem }) {
   const external = link.url.startsWith("http");
+  const interactive = link.url !== "";
+
+  const content = (
+    <>
+      <Icon name={link.icon} color={link.color} />
+      <span className="flex-1 text-sm font-medium text-neutral-800 group-hover:underline decoration-neutral-300 underline-offset-4 dark:text-neutral-200 dark:decoration-neutral-600">
+        {link.name}
+      </span>
+      <span className="text-xs text-neutral-400 dark:text-neutral-500">
+        {link.desc && link.desc}
+      </span>
+      {interactive && <span className="text-xs text-neutral-400 dark:text-neutral-500" aria-hidden>→</span>}
+    </>
+  );
+
+  if (!interactive) {
+    return (
+      <div className="group flex items-center gap-3 rounded-lg border border-neutral-200 px-4 py-2.5 dark:border-neutral-800">
+        {content}
+      </div>
+    );
+  }
 
   return (
     <a
@@ -42,11 +65,7 @@ function LinkRow({ link }: { link: LinkItem }) {
       title={link.desc}
       className="group flex items-center gap-3 rounded-lg border border-neutral-200 px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
     >
-      <Icon name={link.icon} color={link.color} />
-      <span className="flex-1 text-sm font-medium text-neutral-800 group-hover:underline decoration-neutral-300 underline-offset-4 dark:text-neutral-200 dark:decoration-neutral-600">
-        {link.name}
-      </span>
-      <span className="text-xs text-neutral-400 dark:text-neutral-500" aria-hidden>→</span>
+      {content}
     </a>
   );
 }
