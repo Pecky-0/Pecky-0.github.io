@@ -11,7 +11,6 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: t.nav.home },
-    { href: "/about", label: t.nav.about },
   ];
 
   const toggleLang = () => setLang(lang === "zh" ? "en" : "zh");
