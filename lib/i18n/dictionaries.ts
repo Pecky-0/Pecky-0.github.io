@@ -96,7 +96,7 @@ export const zh: Dictionary = {
     contact: "联系方式",
     contactBody: "GitHub: [Pecky-0](https://github.com/Pecky-0) · 邮箱：待补充",
   },
-  footer: { copyright: "© {year} Pecky · 用 Next.js 构建，托管于 GitHub Pages" },
+  footer: { copyright: "© {year} Pecky" },
   notFound: {
     title: "404 - 页面不存在",
     description: "你访问的页面不存在或已被移动。",
@@ -167,7 +167,7 @@ export const en: Dictionary = {
     contactBody: "GitHub: [Pecky-0](https://github.com/Pecky-0) · Email: TBU",
   },
   footer: {
-    copyright: "© {year} Pecky · Built with Next.js, hosted on GitHub Pages"
+    copyright: "© {year} Pecky"
   },
   notFound: {
     title: "404 - Page Not Found",
