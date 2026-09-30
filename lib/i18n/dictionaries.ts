@@ -30,6 +30,14 @@ export interface Dictionary {
     contactBody: string;
   };
   footer: { copyright: string };
+  music: {
+    credit: string;
+    toggleAria: string;
+    playAria: string;
+    pauseAria: string;
+    selectAria: string;
+    volumeAria: string;
+  };
   notFound: { title: string; description: string; backHome: string };
   langToggle: { label: string; ariaLabel: string };
 }
@@ -95,6 +103,14 @@ export const zh: Dictionary = {
     contactBody: "GitHub: [Pecky-0](https://github.com/Pecky-0) · 邮箱：待补充",
   },
   footer: { copyright: "© {year} Pecky" },
+  music: {
+    credit: "音乐由 {name} 制作",
+    toggleAria: "背景音乐控制",
+    playAria: "播放背景音乐",
+    pauseAria: "暂停背景音乐",
+    selectAria: "选择背景音乐",
+    volumeAria: "调整音量",
+  },
   notFound: {
     title: "404 - 页面不存在",
     description: "你访问的页面不存在或已被移动。",
@@ -165,6 +181,14 @@ export const en: Dictionary = {
   },
   footer: {
     copyright: "© {year} Pecky"
+  },
+  music: {
+    credit: "Music by {name}",
+    toggleAria: "Background music controls",
+    playAria: "Play background music",
+    pauseAria: "Pause background music",
+    selectAria: "Select background music",
+    volumeAria: "Adjust volume",
   },
   notFound: {
     title: "404 - Page Not Found",

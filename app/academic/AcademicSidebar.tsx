@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Profile, ProfileLink } from "@/lib/academic";
 import { Icon } from "@/components/Icon";
 
@@ -19,15 +20,16 @@ function SidebarLink({ link }: { link: ProfileLink }) {
     return <div className={className}>{content}</div>;
   }
   const external = link.href.startsWith("http") || link.href.startsWith("mailto:");
+  // 站内链接用 Link 客户端导航，避免整页刷新打断背景音乐；外链/mailto 仍是 <a>
   return (
-    <a
+    <Link
       href={link.href}
       target={link.href.startsWith("http") ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className={className}
     >
       {content}
-    </a>
+    </Link>
   );
 }
 

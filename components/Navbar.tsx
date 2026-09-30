@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import ThemeToggle from "./ThemeToggle";
+import MusicPlayer from "./MusicPlayer";
 
 /** 学术页的区块锚点（只在 /academic/ 时显示）。清空数据区块时需同步维护 */
 const ACADEMIC_ANCHORS: [string, string][] = [
@@ -71,6 +72,7 @@ export default function Navbar() {
               {t.langToggle.label}
             </button>
           )}
+          <MusicPlayer />
           <ThemeToggle />
         </div>
       </nav>

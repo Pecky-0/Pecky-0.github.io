@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { links, type LinkItem } from "@/lib/links";
 import { Icon } from "@/components/Icon";
@@ -57,8 +58,9 @@ function LinkRow({ link }: { link: LinkItem }) {
     );
   }
 
+  // 站内链接用 Link 客户端导航，避免整页刷新打断背景音乐；外链仍是 <a>
   return (
-    <a
+    <Link
       href={link.url}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
@@ -66,7 +68,7 @@ function LinkRow({ link }: { link: LinkItem }) {
       className="group flex items-center gap-3 rounded-lg border border-neutral-200 px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
     >
       {content}
-    </a>
+    </Link>
   );
 }
 
