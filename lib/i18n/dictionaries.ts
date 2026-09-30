@@ -2,7 +2,7 @@ export type Language = "zh" | "en";
 
 /** 界面文案结构。新增语言只需新增一个满足此类型的对象。 */
 export interface Dictionary {
-  nav: { home: string; blog: string; about: string };
+  nav: { home: string; blog: string; about: string; academic: string };
   hero: {
     note: string;
     description: string;
@@ -35,7 +35,7 @@ export interface Dictionary {
 }
 
 export const zh: Dictionary = {
-  nav: { home: "首页", blog: "博客", about: "关于" },
+  nav: { home: "首页", blog: "博客", about: "关于", academic: "学术" },
   hero: {
     note: "今天喝冰红茶了吗！",
     description:
@@ -104,7 +104,7 @@ export const zh: Dictionary = {
 };
 
 export const en: Dictionary = {
-  nav: { home: "Home", blog: "Blog", about: "About" },
+  nav: { home: "Home", blog: "Blog", about: "About", academic: "Academic" },
   hero: {
     note: "Sleepy, but doing what I love.",
     description:

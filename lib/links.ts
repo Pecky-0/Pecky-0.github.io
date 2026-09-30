@@ -10,7 +10,7 @@ export interface LinkItem {
 
 export const links: LinkItem[] = [
   // ── 研究 ──
-  { name: "学术主页", url: "#", desc: "Computer Graphics", category: "research", icon: "graduationcap", color: "6b7280" },
+  { name: "学术主页", url: "/academic/", desc: "Computer Graphics", category: "research", icon: "graduationcap", color: "6b7280" },
   { name: "GitHub", url: "https://github.com/Pecky-0", desc: "Pecky-0", category: "research", icon: "github", color: "181717" },
   { name: "Google Scholar", url: "https://scholar.google.com/", desc: "Paper", category: "research", icon: "googlescholar", color: "4285F4" },
 

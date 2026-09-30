@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MainContainer from "@/components/MainContainer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <LanguageProvider>
             <Navbar />
             <main className="flex-1 w-full">
-              <div className="mx-auto max-w-3xl px-4 py-10">{children}</div>
+              <MainContainer>{children}</MainContainer>
             </main>
             <Footer />
           </LanguageProvider>
