@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "katex/dist/katex.min.css";
 @plugin "@tailwindcss/typography";
 
 /* dark: 变体跟随 <html> 上的 .dark class（next-themes 切换的就是它），
