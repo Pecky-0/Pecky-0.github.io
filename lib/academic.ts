@@ -77,8 +77,9 @@ export const academic: AcademicData = {
       self: ["Peiqi Wang"],
       authorLinks: {
         // 作者主页，格式：作者名: "主页地址"
+        "Ruizeng Li": "https://rhythm25.github.io/",
+        "Beibei Wang": "https://wangningbei.github.io/",
         "Ligang Liu": "http://staff.ustc.edu.cn/~lgliu/",
-        "Beibei Wang": "https://bbwang.github.io/",
       },
       venue: "SIGGRAPH Asia 2026",
       date: "December, 2026",
