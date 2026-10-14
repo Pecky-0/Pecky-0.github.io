@@ -10,22 +10,22 @@ function ProfilePanel() {
   const { t } = useLanguage();
 
   return (
-    <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+    <div className="profile-panel">
       <Image
         src="/head.jpg"
         alt="Pecky"
         width={112}
         height={112}
-        priority
-        className="size-28 shrink-0 rounded-full border border-neutral-200 object-cover dark:border-neutral-700"
+        preload
+        className="profile-avatar"
       />
-      <h1 className="mt-5 text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
+      <h1 className="profile-name">
         Pecky
       </h1>
-      <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
+      <p className="profile-note">
         {t.hero.note}
       </p>
-      <p className="mt-4 max-w-xs text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+      <p className="profile-description">
         {t.hero.description}
       </p>
     </div>
@@ -39,20 +39,18 @@ function LinkRow({ link }: { link: LinkItem }) {
 
   const content = (
     <>
-      <Icon name={link.icon} color={link.color} />
-      <span className="flex-1 text-sm font-medium text-neutral-800 group-hover:underline decoration-neutral-300 underline-offset-4 dark:text-neutral-200 dark:decoration-neutral-600">
-        {link.name}
+      <span className="link-icon"><Icon name={link.icon} size={18} /></span>
+      <span className="link-copy">
+        <span className="link-title">{link.name}</span>
+        {link.desc && <span className="link-description">{link.desc}</span>}
       </span>
-      <span className="text-xs text-neutral-400 dark:text-neutral-500">
-        {link.desc && link.desc}
-      </span>
-      {interactive && <span className="text-xs text-neutral-400 dark:text-neutral-500" aria-hidden>→</span>}
+      {interactive && <span className="link-arrow" aria-hidden>{external ? "↗" : "→"}</span>}
     </>
   );
 
   if (!interactive) {
     return (
-      <div className="group flex items-center gap-3 rounded-lg border border-neutral-200 px-4 py-2.5 dark:border-neutral-800">
+      <div className="group hub-link">
         {content}
       </div>
     );
@@ -65,7 +63,7 @@ function LinkRow({ link }: { link: LinkItem }) {
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       title={link.desc}
-      className="group flex items-center gap-3 rounded-lg border border-neutral-200 px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600"
+      className="group hub-link interactive-link"
     >
       {content}
     </Link>
@@ -82,13 +80,13 @@ function LinkHubPanel() {
   ];
 
   return (
-    <div className="stagger space-y-8">
+    <div className="link-groups stagger">
       {categories.map((cat) => {
         const items = links.filter((l) => l.category === cat.key);
         if (items.length === 0) return null;
         return (
-          <section key={cat.key}>
-            <h2 className="text-sm font-medium uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+          <section key={cat.key} className={`link-category category-${cat.key}`}>
+            <h2 className="category-title">
               {cat.title}
             </h2>
             <div className="mt-3 space-y-2.5">
@@ -105,11 +103,11 @@ function LinkHubPanel() {
 
 export default function HomePageClient() {
   return (
-    <div className="flex flex-col gap-12 lg:flex-row lg:gap-16 lg:py-8">
-      <div className="lg:w-2/5">
+    <div className="home-layout">
+      <div>
         <ProfilePanel />
       </div>
-      <div className="flex-1">
+      <div className="min-w-0">
         <LinkHubPanel />
       </div>
     </div>

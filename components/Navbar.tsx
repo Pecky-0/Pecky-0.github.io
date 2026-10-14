@@ -26,10 +26,10 @@ export default function Navbar() {
   const toggleLang = () => setLang(lang === "zh" ? "en" : "zh");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
+    <header className="site-header sticky top-0 z-50 backdrop-blur">
       <nav
         className={`mx-auto flex h-14 items-center justify-between px-4 ${
-          onAcademic ? "max-w-6xl" : "max-w-3xl"
+          onAcademic ? "max-w-6xl" : pathname === "/" ? "max-w-[880px]" : "max-w-3xl"
         }`}
       >
         <Link href="/" className="font-semibold tracking-tight">

@@ -8,6 +8,7 @@ const WIDE_PREFIXES = ["/academic"];
 export default function MainContainer({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() ?? "/";
   const wide = WIDE_PREFIXES.some((p) => pathname.startsWith(p));
+  if (pathname === "/") return <div className="home-container">{children}</div>;
   return (
     <div className={`mx-auto px-4 py-10 ${wide ? "max-w-6xl" : "max-w-3xl"}`}>{children}</div>
   );
