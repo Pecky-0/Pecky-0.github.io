@@ -8,6 +8,7 @@ export interface Dictionary {
     description: string;
   };
   linkhub: { research: string; hobby: string; social: string };
+  linkItems: Record<"academic" | "github" | "scholar" | "blog" | "email", { name: string; desc: string }>;
   skills: { title: string; items: string[] };
   projects: {
     title: string;
@@ -53,6 +54,13 @@ export const zh: Dictionary = {
     research: "研究",
     hobby: "爱好",
     social: "社交",
+  },
+  linkItems: {
+    academic: { name: "学术主页", desc: "计算机图形学" },
+    github: { name: "GitHub", desc: "Pecky-0" },
+    scholar: { name: "Google Scholar", desc: "学术论文" },
+    blog: { name: "博客", desc: "古灵精怪" },
+    email: { name: "邮箱", desc: "pecky@mail.ustc.edu.cn" },
   },
   skills: {
     title: "技能",
@@ -130,6 +138,13 @@ export const en: Dictionary = {
     research: "Research",
     hobby: "Hobbies",
     social: "Social",
+  },
+  linkItems: {
+    academic: { name: "Academic Profile", desc: "Computer Graphics" },
+    github: { name: "GitHub", desc: "Pecky-0" },
+    scholar: { name: "Google Scholar", desc: "Publications" },
+    blog: { name: "Blog", desc: "Notes & Whimsy" },
+    email: { name: "Email", desc: "pecky@mail.ustc.edu.cn" },
   },
   skills: {
     title: "Skills",

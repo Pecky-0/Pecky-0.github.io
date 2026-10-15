@@ -34,6 +34,8 @@ function ProfilePanel() {
 
 /** 右侧单个链接条目。url 为空时是纯展示条目（如邮箱，右侧直接显示地址） */
 function LinkRow({ link }: { link: LinkItem }) {
+  const { t } = useLanguage();
+  const { name, desc } = t.linkItems[link.id];
   const external = link.url.startsWith("http");
   const interactive = link.url !== "";
 
@@ -41,8 +43,8 @@ function LinkRow({ link }: { link: LinkItem }) {
     <>
       <span className="link-icon"><Icon name={link.icon} size={18} /></span>
       <span className="link-copy">
-        <span className="link-title">{link.name}</span>
-        {link.desc && <span className="link-description">{link.desc}</span>}
+        <span className="link-title">{name}</span>
+        {desc && <span className="link-description">{desc}</span>}
       </span>
       {interactive && <span className="link-arrow" aria-hidden>{external ? "↗" : "→"}</span>}
     </>
@@ -62,7 +64,7 @@ function LinkRow({ link }: { link: LinkItem }) {
       href={link.url}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      title={link.desc}
+      title={desc}
       className="group hub-link interactive-link"
     >
       {content}
@@ -91,7 +93,7 @@ function LinkHubPanel() {
             </h2>
             <div className="mt-3 space-y-2.5">
               {items.map((link) => (
-                <LinkRow key={link.name} link={link} />
+                <LinkRow key={link.id} link={link} />
               ))}
             </div>
           </section>
