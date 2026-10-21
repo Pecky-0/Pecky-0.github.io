@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { academic } from "@/lib/academic";
+import { academic, academicAnchors } from "@/lib/academic";
 import AcademicSidebar from "./AcademicSidebar";
 import PublicationCard from "./PublicationCard";
 import { renderInline } from "./inline";
@@ -36,11 +36,7 @@ export default function AcademicPage() {
     <div lang="en">
       {/* 移动端锚点导航（桌面端锚点在 Navbar 中段） */}
       <nav className="flex gap-2 overflow-x-auto pb-2 lg:hidden" aria-label="Section navigation">
-        {[
-          ["#about", "About"],
-          ["#publications", "Publications"],
-          ["#education", "Education"],
-        ].map(([href, label]) => (
+        {academicAnchors.map(([href, label]) => (
           <a
             key={href}
             href={href}

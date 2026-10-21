@@ -1,3 +1,4 @@
+import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
@@ -18,12 +19,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pecky-0.github.io"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Pecky 的个人网站",
-    template: "%s | Pecky",
+    default: site.title,
+    template: `%s | ${site.name}`,
   },
-  description: "Pecky 的个人网站：博客、项目与关于我。",
+  description: site.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

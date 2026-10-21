@@ -66,7 +66,7 @@ export default function BlogListClient({ posts }: { posts: PostMeta[] }) {
   // 每篇文章只有一个 tag，按该 tag 归组（保留首次出现的顺序）
   const grouped: [string, PostMeta[]][] = [];
   for (const post of posts) {
-    const tag = post.tags[0] ?? "未分类";
+    const tag = post.tags[0] ?? t.blog.uncategorized;
     const existing = grouped.find(([key]) => key === tag);
     if (existing) {
       existing[1].push(post);
@@ -78,7 +78,7 @@ export default function BlogListClient({ posts }: { posts: PostMeta[] }) {
   return (
     <div>
       <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
-        古灵精怪
+        {t.blog.displayTitle}
       </h1>
       <PublicationNotice posts={posts} />
       {posts.length === 0 ? (

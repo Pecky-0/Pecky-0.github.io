@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "home": "首页",
+    "blog": "博客",
+    "about": "关于",
+    "academic": "学术"
+  },
+  "hero": {
+    "note": "今天喝冰红茶了吗！",
+    "description": "希望有一天，我能讲出一些带给别人爱与感动的故事。如果等到垂垂老矣，当我意识到我没有，同时不再有可能做到我希望的这些，或许我会大哭一场。"
+  },
+  "linkhub": {
+    "research": "研究",
+    "hobby": "爱好",
+    "social": "社交"
+  },
+  "linkItems": {
+    "academic": {
+      "name": "学术主页",
+      "desc": "计算机图形学"
+    },
+    "github": {
+      "name": "GitHub",
+      "desc": "Pecky-0"
+    },
+    "scholar": {
+      "name": "Google Scholar",
+      "desc": "学术论文"
+    },
+    "blog": {
+      "name": "博客",
+      "desc": "古灵精怪"
+    },
+    "email": {
+      "name": "邮箱",
+      "desc": "pecky@mail.ustc.edu.cn"
+    }
+  },
+  "skills": {
+    "title": "技能",
+    "items": [
+      "JavaScript / TypeScript",
+      "React / Next.js",
+      "Python",
+      "Git",
+      "SQL",
+      "Linux"
+    ]
+  },
+  "projects": {
+    "title": "精选项目",
+    "viewAll": "查看全部",
+    "items": [
+      {
+        "title": "个人网站",
+        "description": "使用 Next.js 构建的个人网站，部署在 GitHub Pages 上。",
+        "link": "https://github.com/Pecky-0"
+      },
+      {
+        "title": "项目占位二",
+        "description": "在这里介绍你的第二个项目：做了什么、用了什么技术、解决了什么问题。",
+        "link": ""
+      },
+      {
+        "title": "项目占位三",
+        "description": "在这里介绍你的第三个项目，之后替换成你自己的真实项目。",
+        "link": "https://github.com/Pecky-0"
+      },
+      {
+        "title": "项目占位四",
+        "description": "在这里介绍你的第四个项目，之后替换成你自己的真实项目。",
+        "link": "https://github.com/Pecky-0"
+      }
+    ]
+  },
+  "blog": {
+    "title": "博客",
+    "empty": "还没有文章，敬请期待。",
+    "readMore": "阅读全文",
+    "backToList": "← 返回列表",
+    "latestTitle": "最新文章",
+    "viewAll": "查看全部 →",
+    "announcements": "发布公告",
+    "announcementPagination": "公告翻页",
+    "previousPage": "上一页",
+    "nextPage": "下一页",
+    "pageIndicator": "第 {current} / {total} 页",
+    "newestFirst": "按发布时间 · 最新在前",
+    "publicationNotice": "，发布了{type}文章：",
+    "uncategorized": "未分类",
+    "displayTitle": "古灵精怪",
+    "typeLabels": {}
+  },
+  "about": {
+    "title": "关于我",
+    "intro": "你好！我是 Pecky，一名热爱技术与创造的开发者。",
+    "body": [
+      "这一页用来介绍你自己：你的背景、正在学习或专注的方向、经历与兴趣。",
+      "你可以直接编辑 app/about/page.tsx 来修改这里的内容，或告诉我你想展示什么，我来帮你改。"
+    ],
+    "contact": "联系方式",
+    "contactBody": "GitHub: [Pecky-0](https://github.com/Pecky-0) · 邮箱：待补充"
+  },
+  "footer": {
+    "copyright": "© {year} Pecky"
+  },
+  "music": {
+    "buffering": "正在缓冲…",
+    "credit": "音乐由 {name} 制作",
+    "toggleAria": "背景音乐控制",
+    "playAria": "播放背景音乐",
+    "pauseAria": "暂停背景音乐",
+    "selectAria": "选择背景音乐",
+    "volumeAria": "调整音量"
+  },
+  "notFound": {
+    "title": "404 - 页面不存在",
+    "description": "你访问的页面不存在或已被移动。",
+    "backHome": "← 返回首页"
+  },
+  "langToggle": {
+    "label": "EN",
+    "ariaLabel": "切换到 English"
+  }
+}

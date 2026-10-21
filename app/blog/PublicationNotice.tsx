@@ -8,10 +8,6 @@ import styles from "./PublicationNotice.module.css";
 
 const PAGE_SIZE = 5;
 
-const englishTypes: Record<string, string> = {
-  "技术笔记": "technical notes",
-  "随笔": "personal essay",
-};
 
 function displayDate(date: string, lang: "zh" | "en") {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
@@ -44,7 +40,7 @@ export default function PublicationNotice({ posts }: { posts: PostMeta[] }) {
         <ol id="publication-notice-list" className={styles.list}>
           {visiblePosts.map((post) => {
             const tag = post.tags[0];
-            const type = tag ? (lang === "en" ? englishTypes[tag] ?? tag : tag) : t.blog.uncategorized;
+            const type = tag ? (t.blog.typeLabels[tag] ?? tag) : t.blog.uncategorized;
             return (
               <li key={post.slug} className={styles.item}>
                 <time dateTime={post.date}>{displayDate(post.date, lang)}</time>

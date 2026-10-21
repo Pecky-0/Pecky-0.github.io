@@ -1,5 +1,6 @@
 "use client";
 
+import { site } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
@@ -12,15 +13,15 @@ function ProfilePanel() {
   return (
     <div className="profile-panel">
       <Image
-        src="/head.jpg"
-        alt="Pecky"
+        src={site.avatar}
+        alt={site.name}
         width={112}
         height={112}
         preload
         className="profile-avatar"
       />
       <h1 className="profile-name">
-        Pecky
+        {site.name}
       </h1>
       <p className="profile-note">
         {t.hero.note}

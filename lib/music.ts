@@ -1,3 +1,5 @@
+import data from "@/public/music/tracks.json";
+
 export interface Track {
   /** 歌曲名，显示在下拉框中 */
   name: string;
@@ -7,8 +9,4 @@ export interface Track {
   producer: string;
 }
 
-export const tracks: Track[] = [
-  { name: "远方传来风笛", src: "/music/1.mp3", producer: "StormDG" },
-  { name: "我该怎么写伴奏", src: "/music/2.mp3", producer: "StormDG" },
-  { name: "月亮消失之前", src: "/music/3.mp3", producer: "StormDG" },
-];
+export const tracks: Track[] = data;

@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "academic": "Academic"
+  },
+  "hero": {
+    "note": "Sleepy, but doing what I love.",
+    "description": "I hope that one day I can tell stories that bring others love and move them. If I wait until I am old and gray, only to realize that I never did, and that I can no longer do what I once hoped to do, perhaps I will cry my heart out."
+  },
+  "linkhub": {
+    "research": "Research",
+    "hobby": "Hobbies",
+    "social": "Social"
+  },
+  "linkItems": {
+    "academic": {
+      "name": "Academic Profile",
+      "desc": "Computer Graphics"
+    },
+    "github": {
+      "name": "GitHub",
+      "desc": "Pecky-0"
+    },
+    "scholar": {
+      "name": "Google Scholar",
+      "desc": "Publications"
+    },
+    "blog": {
+      "name": "Blog",
+      "desc": "Notes & Whimsy"
+    },
+    "email": {
+      "name": "Email",
+      "desc": "pecky@mail.ustc.edu.cn"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      "JavaScript / TypeScript",
+      "React / Next.js",
+      "Python",
+      "Git",
+      "SQL",
+      "Linux"
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewAll": "View All",
+    "items": [
+      {
+        "title": "Personal Website",
+        "description": "A personal site built with Next.js and deployed on GitHub Pages.",
+        "link": "https://github.com/Pecky-0"
+      },
+      {
+        "title": "Project Placeholder 2",
+        "description": "Describe your second project here: what it does, the tech it uses, the problem it solves.",
+        "link": ""
+      },
+      {
+        "title": "Project Placeholder 3",
+        "description": "Replace this with your third real project.",
+        "link": "https://github.com/Pecky-0"
+      },
+      {
+        "title": "Project Placeholder 4",
+        "description": "Replace this with your fourth real project.",
+        "link": "https://github.com/Pecky-0"
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "empty": "No posts yet. Stay tuned.",
+    "readMore": "Read More",
+    "backToList": "← Back to List",
+    "latestTitle": "Latest Posts",
+    "viewAll": "View All →",
+    "announcements": "Publication updates",
+    "announcementPagination": "Publication updates pagination",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "pageIndicator": "Page {current} of {total}",
+    "newestFirst": "Newest first",
+    "publicationNotice": ", published a {type} post: ",
+    "uncategorized": "uncategorized",
+    "displayTitle": "Notes & Whimsy",
+    "typeLabels": {
+      "技术笔记": "technical notes",
+      "随笔": "personal essay"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "Hi! I'm Pecky, a developer who loves building things.",
+    "body": [
+      "This page is where you introduce yourself: your background, what you're learning or focusing on, your experience and interests.",
+      "You can edit app/about/page.tsx directly, or tell me what you want to show and I'll update it for you."
+    ],
+    "contact": "Contact",
+    "contactBody": "GitHub: [Pecky-0](https://github.com/Pecky-0) · Email: TBU"
+  },
+  "footer": {
+    "copyright": "© {year} Pecky"
+  },
+  "music": {
+    "buffering": "Buffering…",
+    "credit": "Music by {name}",
+    "toggleAria": "Background music controls",
+    "playAria": "Play background music",
+    "pauseAria": "Pause background music",
+    "selectAria": "Select background music",
+    "volumeAria": "Adjust volume"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "The page you are looking for doesn't exist or has been moved.",
+    "backHome": "← Back to Home"
+  },
+  "langToggle": {
+    "label": "中",
+    "ariaLabel": "Switch to Chinese"
+  }
+}

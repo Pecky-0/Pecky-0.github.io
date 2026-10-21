@@ -1,0 +1,37 @@
+[
+  {
+    "id": "academic",
+    "url": "/academic/",
+    "category": "research",
+    "icon": "graduationcap",
+    "color": "6b7280"
+  },
+  {
+    "id": "github",
+    "url": "https://github.com/Pecky-0",
+    "category": "research",
+    "icon": "github",
+    "color": "181717"
+  },
+  {
+    "id": "scholar",
+    "url": "https://scholar.google.com/",
+    "category": "research",
+    "icon": "googlescholar",
+    "color": "4285F4"
+  },
+  {
+    "id": "blog",
+    "url": "/blog/",
+    "category": "hobby",
+    "icon": "pen",
+    "color": "10b981"
+  },
+  {
+    "id": "email",
+    "url": "",
+    "category": "social",
+    "icon": "mail",
+    "color": "6b7280"
+  }
+]

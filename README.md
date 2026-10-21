@@ -1,3 +1,7 @@
+## 日常内容维护
+
+博客、配图、个人介绍、学术资料和歌单均在 `public/` 下维护。详见 [内容维护说明](public/README.md)。
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

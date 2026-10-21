@@ -1,8 +1,4 @@
-/**
- * 学术主页数据中枢：所有内容集中在这里，之后改内容只需编辑本文件。
- * 注意：如果清空了某个区块的数组（如 news），页面会自动隐藏该区块，
- * 但 Navbar 里的锚点导航是硬编码的，需要同步删掉对应锚点。
- */
+import data from "@/public/academic/data.json";
 
 /** About 段落和 News 正文里的内联链接，用 markdown 语法写在字符串里：[text](url) */
 export interface ProfileLink {
@@ -51,54 +47,10 @@ export interface AcademicData {
   education: EducationItem[];
 }
 
-export const academic: AcademicData = {
-  profile: {
-    name: "Peiqi Wang（王佩琦）",
-    avatar: "/head.jpg",
-    tagline: "I explore Computer Graphics. Love art & technology.",
-    links: [
-      { label: "Hefei, Anhui, China", icon: "mappin" },
-      { label: "University of Science and Technology of China", icon: "graduationcap" },
-      { label: "Email", href: "mailto:pecky@mail.ustc.edu.cn", icon: "mail" },
-      { label: "GitHub", href: "https://github.com/Pecky-0", icon: "github" },
-      { label: "Google Scholar", href: "https://scholar.google.com/", icon: "googlescholar" },
-      { label: "Blog", href: "/blog/", icon: "pen" },
-    ],
-  },
-  about: [
-    "I am currently a senior undergraduate majoring in Computer Science and Technology at the University of Science and Technology of China (USTC). I will start my graduate studies at University of Science and Technology, under the supervision of [Prof. Ligang Liu](http://staff.ustc.edu.cn/~lgliu/). My research interest lies in Computer Graphics.",
-    "Outside of research, I am passionate about game development, drawing, and literature and arts. You can visit my [blog](/blog/), where I share my quirky thoughts and technology-related notes.",
-  ],
-  publications: [
-    {
-      title: "Differentiable Rendering for Specular Materials via Projected Specular Manifolds.",
-      titleHref: "https://rhythm25.github.io/PSMpage/",
-      authors: ["Ruizeng Li", "Peiqi Wang", "Beibei Wang", "Ligang Liu"],
-      self: ["Peiqi Wang"],
-      authorLinks: {
-        // 作者主页，格式：作者名: "主页地址"
-        "Ruizeng Li": "https://rhythm25.github.io/",
-        "Beibei Wang": "https://wangningbei.github.io/",
-        "Ligang Liu": "http://staff.ustc.edu.cn/~lgliu/",
-      },
-      venue: "SIGGRAPH Asia 2026",
-      date: "December, 2026",
-      // 缩略图放 public/ 下（如 public/academic/paper/PSM.png），这里写根绝对路径（不带 public 前缀）
-      image: "/academic/paper/PSM.png",
-      links: {
-        project: "https://rhythm25.github.io/PSMpage/",
-        paper: "",
-        doi: "",
-        video: "",
-        code: "https://github.com/Rhythm25/PSM",
-      },
-    }
-  ],
-  education: [
-    {
-      school: "University of Science and Technology of China",
-      schoolHref: "http://en.ustc.edu.cn/",
-      details: ["B.S. in Computer Science", "Sep, 2023 - Present"],
-    },
-  ]
-};
+export const academic: AcademicData = data;
+
+export const academicAnchors: [string, string][] = [
+  ["#about", "About"],
+  ...(academic.publications.length ? [["#publications", "Publications"] as [string, string]] : []),
+  ...(academic.education.length ? [["#education", "Education"] as [string, string]] : []),
+];

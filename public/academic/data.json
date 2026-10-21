@@ -1,0 +1,81 @@
+{
+  "profile": {
+    "name": "Peiqi Wang（王佩琦）",
+    "avatar": "/head.jpg",
+    "tagline": "I explore Computer Graphics. Love art & technology.",
+    "links": [
+      {
+        "label": "Hefei, Anhui, China",
+        "icon": "mappin"
+      },
+      {
+        "label": "University of Science and Technology of China",
+        "icon": "graduationcap"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:pecky@mail.ustc.edu.cn",
+        "icon": "mail"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Pecky-0",
+        "icon": "github"
+      },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/",
+        "icon": "googlescholar"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/",
+        "icon": "pen"
+      }
+    ]
+  },
+  "about": [
+    "I am currently a senior undergraduate majoring in Computer Science and Technology at the University of Science and Technology of China (USTC). I will start my graduate studies at University of Science and Technology, under the supervision of [Prof. Ligang Liu](http://staff.ustc.edu.cn/~lgliu/). My research interest lies in Computer Graphics.",
+    "Outside of research, I am passionate about game development, drawing, and literature and arts. You can visit my [blog](/blog/), where I share my quirky thoughts and technology-related notes."
+  ],
+  "publications": [
+    {
+      "title": "Differentiable Rendering for Specular Materials via Projected Specular Manifolds.",
+      "titleHref": "https://rhythm25.github.io/PSMpage/",
+      "authors": [
+        "Ruizeng Li",
+        "Peiqi Wang",
+        "Beibei Wang",
+        "Ligang Liu"
+      ],
+      "self": [
+        "Peiqi Wang"
+      ],
+      "authorLinks": {
+        "Ruizeng Li": "https://rhythm25.github.io/",
+        "Beibei Wang": "https://wangningbei.github.io/",
+        "Ligang Liu": "http://staff.ustc.edu.cn/~lgliu/"
+      },
+      "venue": "SIGGRAPH Asia 2026",
+      "date": "December, 2026",
+      "image": "/academic/paper/PSM.png",
+      "links": {
+        "project": "https://rhythm25.github.io/PSMpage/",
+        "paper": "",
+        "doi": "",
+        "video": "",
+        "code": "https://github.com/Rhythm25/PSM"
+      }
+    }
+  ],
+  "education": [
+    {
+      "school": "University of Science and Technology of China",
+      "schoolHref": "http://en.ustc.edu.cn/",
+      "details": [
+        "B.S. in Computer Science",
+        "Sep, 2023 - Present"
+      ]
+    }
+  ]
+}

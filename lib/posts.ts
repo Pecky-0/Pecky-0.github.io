@@ -10,7 +10,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import { notFound } from "next/navigation";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const postsDirectory = path.join(process.cwd(), "public", "posts");
 
 /** 把 frontmatter 的 date（可能是 Date 对象或字符串）格式化为 YYYY-MM-DD */
 function formatDate(value: unknown): string {

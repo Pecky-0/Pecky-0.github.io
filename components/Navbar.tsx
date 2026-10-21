@@ -1,17 +1,14 @@
 "use client";
 
+import { site } from "@/lib/site";
+import { academicAnchors } from "@/lib/academic";
+import { tracks } from "@/lib/music";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import ThemeToggle from "./ThemeToggle";
 import MusicPlayer from "./MusicPlayer";
 
-/** 学术页的区块锚点（只在 /academic/ 时显示）。清空数据区块时需同步维护 */
-const ACADEMIC_ANCHORS: [string, string][] = [
-  ["#about", "About"],
-  ["#publications", "Publications"],
-  ["#education", "Education"],
-];
 
 export default function Navbar() {
   const { t, lang, setLang } = useLanguage();
@@ -33,7 +30,7 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" className="font-semibold tracking-tight">
-          Pecky
+          {site.name}
         </Link>
         <div className="flex items-center gap-0.5 sm:gap-1">
           {links.map((link) => (
@@ -51,7 +48,7 @@ export default function Navbar() {
           ))}
           {onAcademic && (
             <div className="hidden items-center gap-0.5 lg:flex">
-              {ACADEMIC_ANCHORS.map(([href, label]) => (
+              {academicAnchors.map(([href, label]) => (
                 <a
                   key={href}
                   href={href}
@@ -72,7 +69,7 @@ export default function Navbar() {
               {t.langToggle.label}
             </button>
           )}
-          <MusicPlayer />
+          {tracks.length > 0 && <MusicPlayer />}
           <ThemeToggle />
         </div>
       </nav>
