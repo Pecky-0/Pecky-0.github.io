@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "requireLogin": true,
+  "serverURL": "https://waline-ten-neon.vercel.app",
+  "pageSize": 10,
+  "showSorting": false,
+  "showRss": false,
+  "labels": {
+    "zh": {
+      "title": "评论",
+      "description": "",
+      "loading": "正在加载评论…",
+      "error": "评论区加载失败，请稍后重试。",
+      "retry": "重新加载"
+    },
+    "en": {
+      "title": "Comments",
+      "description": "",
+      "loading": "Loading comments…",
+      "error": "Could not load comments. Please try again later.",
+      "retry": "Retry"
+    }
+  }
+}

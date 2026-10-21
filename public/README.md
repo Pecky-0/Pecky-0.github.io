@@ -61,6 +61,22 @@ tags: ["随笔"]
 
 把新音频放入 `music/`，然后在 `music/tracks.json` 添加 `name`（歌名）、`src`（例如 `/music/4.mp3`）、`producer`（制作人）。列表顺序就是播放顺序，清空为 `[]` 会隐藏播放器。现有 WAV 原文件保留，播放器使用 MP3。
 
+## 评论区（Waline）
+
+配置位于 `content/comments.json`：`enabled` 控制显示，`serverURL` 是 Waline 服务根地址（不加 `/ui` 或 `/api`），`pageSize` 控制每页评论数，`labels` 修改中英文标题和提示。
+
+`showSorting` 和 `showRss` 默认设为 `false`，分别隐藏排序选项和 RSS 订阅入口。评论默认按最新在前展示；如需恢复入口，将对应值改为 `true`。隐藏 RSS 入口不会关闭服务端的 RSS 接口。
+
+当前服务地址为 `https://waline-ten-neon.vercel.app`。每篇文章按 `/blog/文件名/` 独立保存评论，因此发布后不要随意修改文章文件名。评论区随网站语言和主题切换，在接近文章底部时加载。
+
+`requireLogin: true` 将前端设为登录后才能评论。还必须在 Vercel 的 Waline 项目中设置环境变量 `LOGIN=force` 并重新部署，服务端才会拒绝未登录的评论请求。若以后恢复游客评论，需要同时调整前端和服务端。第三方登录由 Waline 的 OAuth 认证服务管理，不在本网站配置密钥。
+
+评论保存在 Waline 数据库里，不会写进 GitHub 仓库。请访问服务地址下的 `/ui/register` 注册管理员（首个注册用户是管理员），之后从 `/ui` 管理评论。数据库密码和服务密钥只放在 Vercel 环境变量中，不要放进 `public`。
+
+若页面能打开但评论请求失败，请检查 Vercel 的数据库配置与日志，以及 Waline 的 `SECURE_DOMAINS` 是否允许 `pecky-0.github.io`。本地预览也需要服务端允许对应开发地址。修改服务端环境变量后重新部署 Waline。
+
+参考：[Waline 官方快速上手](https://waline.js.org/guide/get-started/)、[原参考教程](https://www.cnblogs.com/kuangdaoyizhimei/p/17999097)。
+
 ## 保存与上线
 
 JSON 文件使用双引号，不支持注释或末尾多余逗号；中英文内容分别维护。图片、音乐路径均从网站根目录开始，例如 `/head.jpg`，不用加 `public`。

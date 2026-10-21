@@ -1,0 +1,62 @@
+.comments {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--foreground);
+}
+
+.comments h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.thread {
+  min-height: 1px;
+  --waline-font-size: 16px;
+  --waline-theme-color: var(--accent);
+  --waline-active-color: var(--muted);
+  --waline-text-color: var(--foreground);
+  --waline-bg-color: var(--surface);
+  --waline-bg-color-light: var(--background);
+  --waline-bg-color-hover: var(--accent-soft);
+  --waline-border-color: var(--line);
+  --waline-disable-bg-color: var(--background);
+  --waline-disable-color: var(--muted);
+  --waline-info-color: var(--muted);
+  --waline-info-bg-color: var(--background);
+  --waline-border: 1px solid var(--line);
+  --waline-border-radius: 10px;
+  --waline-box-shadow: none;
+}
+
+.thread :global(.wl-editor) {
+  font-family: inherit;
+}
+
+.thread[data-hide-sorting="true"] :global(.wl-sort) {
+  display: none;
+}
+
+.thread :global(.wl-count),
+.thread :global(.wl-empty),
+.thread[data-hide-sorting="true"] :global(.wl-meta-head) {
+  display: none;
+}
+
+.retry {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--accent-soft);
+}

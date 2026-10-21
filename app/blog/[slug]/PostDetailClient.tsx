@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Comments from "@/components/Comments";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import type { Post, PostMeta } from "@/lib/posts";
 
@@ -68,6 +69,7 @@ export default function PostDetailClient({
         <AdjacentLink post={newer} label={newerLabel} dir="newer" />
         <AdjacentLink post={older} label={olderLabel} dir="older" />
       </div>
+      <Comments slug={post.slug} />
     </article>
   );
 }
