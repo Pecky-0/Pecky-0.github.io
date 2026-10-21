@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import PostCard from "@/components/PostCard";
+import PublicationNotice from "./PublicationNotice";
 import type { PostMeta } from "@/lib/posts";
 
 /** 单个 tag 的下拉分组：点击方块展开该 tag 下的文章 */
@@ -79,6 +80,7 @@ export default function BlogListClient({ posts }: { posts: PostMeta[] }) {
       <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
         古灵精怪
       </h1>
+      <PublicationNotice posts={posts} />
       {posts.length === 0 ? (
         <p className="mt-8 text-sm text-neutral-600 dark:text-neutral-400">{t.blog.empty}</p>
       ) : (

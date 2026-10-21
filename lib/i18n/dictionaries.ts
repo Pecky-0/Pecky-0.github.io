@@ -22,6 +22,10 @@ export interface Dictionary {
     backToList: string;
     latestTitle: string;
     viewAll: string;
+    announcements: string;
+    newestFirst: string;
+    publicationNotice: string;
+    uncategorized: string;
   };
   about: {
     title: string;
@@ -99,6 +103,10 @@ export const zh: Dictionary = {
     backToList: "← 返回列表",
     latestTitle: "最新文章",
     viewAll: "查看全部 →",
+    announcements: "发布公告",
+    newestFirst: "按发布时间 · 最新在前",
+    publicationNotice: "，发布了{type}文章：",
+    uncategorized: "未分类",
   },
   about: {
     title: "关于我",
@@ -183,6 +191,10 @@ export const en: Dictionary = {
     backToList: "← Back to List",
     latestTitle: "Latest Posts",
     viewAll: "View All →",
+    announcements: "Publication updates",
+    newestFirst: "Newest first",
+    publicationNotice: ", published a {type} post: ",
+    uncategorized: "uncategorized",
   },
   about: {
     title: "About Me",
