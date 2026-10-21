@@ -18,41 +18,34 @@ export default function MusicPlayer() {
   const [trackIndex, setTrackIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  const [preloadEnabled, setPreloadEnabled] = useState(false);
+  const [buffering, setBuffering] = useState(false);
 
-  useEffect(() => setMounted(true), []);
-
-  // 挂载后恢复上次的选歌与音量
+  // Restore preferences before mounting audio, avoiding a redundant first-track load.
   useEffect(() => {
-    if (!mounted) return;
-
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const savedTrack = Number(localStorage.getItem(TRACK_KEY));
-    if (Number.isInteger(savedTrack) && savedTrack >= 0 && savedTrack < tracks.length) {
-      setTrackIndex(savedTrack);
-    }
-
-    const savedVolume = Number(localStorage.getItem(VOLUME_KEY));
-    if (savedVolume > 0 && savedVolume <= 1) {
-      setVolume(savedVolume);
-      audio.volume = savedVolume;
-    } else {
-      audio.volume = DEFAULT_VOLUME;
-    }
-
-    return () => audio.pause();
-  }, [mounted]);
+    try {
+      const savedTrack = Number(localStorage.getItem(TRACK_KEY));
+      if (Number.isInteger(savedTrack) && savedTrack >= 0 && savedTrack < tracks.length) {
+        setTrackIndex(savedTrack);
+      }
+      const savedVolume = localStorage.getItem(VOLUME_KEY);
+      if (savedVolume !== null && Number.isFinite(Number(savedVolume)) && Number(savedVolume) >= 0 && Number(savedVolume) <= 1) {
+        setVolume(Number(savedVolume));
+      }
+    } catch { /* Playback remains available when storage is blocked. */ }
+    setMounted(true);
+  }, []);
 
   // 选歌或音量变化时持久化
   useEffect(() => {
     if (!mounted) return;
-    localStorage.setItem(TRACK_KEY, String(trackIndex));
+    try { localStorage.setItem(TRACK_KEY, String(trackIndex)); } catch { /* Optional preference. */ }
   }, [mounted, trackIndex]);
 
   useEffect(() => {
     if (!mounted) return;
-    localStorage.setItem(VOLUME_KEY, String(volume));
+    if (audioRef.current) audioRef.current.volume = volume;
+    try { localStorage.setItem(VOLUME_KEY, String(volume)); } catch { /* Optional preference. */ }
   }, [mounted, volume]);
 
   // audio 元素挂载后或换歌时更新 src；正在播放则继续播新歌
@@ -63,12 +56,14 @@ export default function MusicPlayer() {
     if (!audio) return;
 
     const wasPlaying = !audio.paused && !audio.ended;
+    let cancelled = false;
     audio.src = encodeURI(tracks[trackIndex].src);
     audio.load();
 
     if (wasPlaying) {
-      audio.play().catch(() => setPlaying(false));
+      audio.play().catch(() => { if (!cancelled) { setPlaying(false); setBuffering(false); } });
     }
+    return () => { cancelled = true; };
   }, [mounted, trackIndex]);
 
   // 点击面板外或按 Esc 关闭
@@ -95,7 +90,8 @@ export default function MusicPlayer() {
     if (!audio) return;
 
     if (audio.paused) {
-      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+      setPreloadEnabled(true);
+      audio.play().catch(() => { setPlaying(false); setBuffering(false); });
     } else {
       audio.pause();
       setPlaying(false);
@@ -117,7 +113,7 @@ export default function MusicPlayer() {
     <div ref={rootRef} className="relative">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => { setPreloadEnabled(true); setOpen((v) => !v); }}
         aria-label={t.music.toggleAria}
         aria-expanded={open}
         className="flex size-8 items-center justify-center rounded-md text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
@@ -172,9 +168,21 @@ export default function MusicPlayer() {
           <p className="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
             {t.music.credit.replace("{name}", track.producer)}
           </p>
+          <p role="status" className="text-xs text-neutral-500 dark:text-neutral-400">
+            {buffering ? t.music.buffering : ""}
+          </p>
         </div>
       )}
-      <audio ref={audioRef} loop preload="none" hidden onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} />
+      <audio
+        ref={audioRef} loop preload={preloadEnabled ? "auto" : "none"} hidden
+        onPlay={() => setPlaying(true)}
+        onPlaying={() => setBuffering(false)}
+        onWaiting={() => setBuffering(true)}
+        onCanPlay={() => setBuffering(false)}
+        onEmptied={() => setBuffering(false)}
+        onPause={() => { setPlaying(false); setBuffering(false); }}
+        onError={() => { setPlaying(false); setBuffering(false); }}
+      />
     </div>
   );
 }

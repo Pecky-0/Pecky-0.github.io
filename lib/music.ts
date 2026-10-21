@@ -8,7 +8,7 @@ export interface Track {
 }
 
 export const tracks: Track[] = [
-  { name: "远方传来风笛", src: "/music/1.wav", producer: "StormDG" },
-  { name: "我该怎么写伴奏", src: "/music/2.wav", producer: "StormDG" },
-  { name: "月亮消失之前", src: "/music/3.wav", producer: "StormDG" },
+  { name: "远方传来风笛", src: "/music/1.mp3", producer: "StormDG" },
+  { name: "我该怎么写伴奏", src: "/music/2.mp3", producer: "StormDG" },
+  { name: "月亮消失之前", src: "/music/3.mp3", producer: "StormDG" },
 ];

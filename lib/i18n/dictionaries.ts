@@ -40,6 +40,7 @@ export interface Dictionary {
   };
   footer: { copyright: string };
   music: {
+    buffering: string;
     credit: string;
     toggleAria: string;
     playAria: string;
@@ -128,6 +129,7 @@ export const zh: Dictionary = {
   },
   footer: { copyright: "© {year} Pecky" },
   music: {
+    buffering: "正在缓冲…",
     credit: "音乐由 {name} 制作",
     toggleAria: "背景音乐控制",
     playAria: "播放背景音乐",
@@ -222,6 +224,7 @@ export const en: Dictionary = {
     copyright: "© {year} Pecky"
   },
   music: {
+    buffering: "Buffering…",
     credit: "Music by {name}",
     toggleAria: "Background music controls",
     playAria: "Play background music",
