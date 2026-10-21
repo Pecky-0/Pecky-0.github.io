@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import type { PostMeta } from "@/lib/posts";
 import styles from "./PublicationNotice.module.css";
+
+const PAGE_SIZE = 5;
 
 const englishTypes: Record<string, string> = {
   "技术笔记": "technical notes",
@@ -22,10 +25,14 @@ function displayDate(date: string, lang: "zh" | "en") {
 
 export default function PublicationNotice({ posts }: { posts: PostMeta[] }) {
   const { t, lang } = useLanguage();
+  const [page, setPage] = useState(0);
   if (posts.length === 0) return null;
 
   // Sort a copy so the announcement never changes the category list's data.
   const orderedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+  const pageCount = Math.ceil(orderedPosts.length / PAGE_SIZE);
+  const currentPage = Math.min(page, pageCount - 1);
+  const visiblePosts = orderedPosts.slice(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE);
 
   return (
     <section className={styles.notice} aria-labelledby="publication-notice-title">
@@ -33,9 +40,9 @@ export default function PublicationNotice({ posts }: { posts: PostMeta[] }) {
         <h2 id="publication-notice-title">{t.blog.announcements}</h2>
         <p>{t.blog.newestFirst}</p>
       </div>
-      <div className={styles.scrollArea} tabIndex={0} role="region" aria-label={t.blog.announcements}>
-        <ol className={styles.list}>
-          {orderedPosts.map((post) => {
+      <div className={styles.content}>
+        <ol id="publication-notice-list" className={styles.list}>
+          {visiblePosts.map((post) => {
             const tag = post.tags[0];
             const type = tag ? (lang === "en" ? englishTypes[tag] ?? tag : tag) : t.blog.uncategorized;
             return (
@@ -48,6 +55,19 @@ export default function PublicationNotice({ posts }: { posts: PostMeta[] }) {
           })}
         </ol>
       </div>
+      {pageCount > 1 && (
+        <nav className={styles.pagination} aria-label={t.blog.announcementPagination}>
+          <button type="button" disabled={currentPage === 0} aria-controls="publication-notice-list" onClick={() => setPage(currentPage - 1)}>
+            {t.blog.previousPage}
+          </button>
+          <span role="status" aria-live="polite" aria-atomic="true">
+            {t.blog.pageIndicator.replace("{current}", String(currentPage + 1)).replace("{total}", String(pageCount))}
+          </span>
+          <button type="button" disabled={currentPage === pageCount - 1} aria-controls="publication-notice-list" onClick={() => setPage(currentPage + 1)}>
+            {t.blog.nextPage}
+          </button>
+        </nav>
+      )}
     </section>
   );
 }

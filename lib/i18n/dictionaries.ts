@@ -23,6 +23,10 @@ export interface Dictionary {
     latestTitle: string;
     viewAll: string;
     announcements: string;
+    announcementPagination: string;
+    previousPage: string;
+    nextPage: string;
+    pageIndicator: string;
     newestFirst: string;
     publicationNotice: string;
     uncategorized: string;
@@ -104,6 +108,10 @@ export const zh: Dictionary = {
     latestTitle: "最新文章",
     viewAll: "查看全部 →",
     announcements: "发布公告",
+    announcementPagination: "公告翻页",
+    previousPage: "上一页",
+    nextPage: "下一页",
+    pageIndicator: "第 {current} / {total} 页",
     newestFirst: "按发布时间 · 最新在前",
     publicationNotice: "，发布了{type}文章：",
     uncategorized: "未分类",
@@ -192,6 +200,10 @@ export const en: Dictionary = {
     latestTitle: "Latest Posts",
     viewAll: "View All →",
     announcements: "Publication updates",
+    announcementPagination: "Publication updates pagination",
+    previousPage: "Previous",
+    nextPage: "Next",
+    pageIndicator: "Page {current} of {total}",
     newestFirst: "Newest first",
     publicationNotice: ", published a {type} post: ",
     uncategorized: "uncategorized",

@@ -28,13 +28,35 @@
   color: var(--muted);
 }
 
-.scrollArea {
-  max-height: 20rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
+.content {
   margin-top: 14px;
 }
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pagination button {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) { background: var(--accent-soft); }
+.pagination button:disabled { opacity: .45; cursor: not-allowed; }
 
 .list { list-style: none; margin: 0; padding: 0; }
 
