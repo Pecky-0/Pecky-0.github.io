@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import PostCard from "@/components/PostCard";
 import PublicationNotice from "./PublicationNotice";
@@ -77,8 +78,16 @@ export default function BlogListClient({ posts }: { posts: PostMeta[] }) {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
-        {t.blog.displayTitle}
+      <h1>
+        <span className="sr-only">{t.blog.displayTitle}</span>
+        <Image
+          src="/branding/blog-logo.png"
+          alt=""
+          width={2172}
+          height={724}
+          preload
+          className="block h-auto w-[320px] max-w-full sm:w-[400px] dark:brightness-150"
+        />
       </h1>
       <PublicationNotice posts={posts} />
       {posts.length === 0 ? (
